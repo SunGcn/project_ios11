@@ -30,20 +30,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mainMapView.userTrackingMode = MKUserTrackingMode.followWithHeading
         
         //创建一个MKCoordinateSpan对象，设置地图的范围（越小越精确）
-        let latDelta = 0.05
-        let longDelta = 0.05
-        let currentLocationSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        //let latDelta = 0.05
+        //let longDelta = 0.05
+        //let currentLocationSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
         //定义地图区域和中心坐标（
         //使用当前位置
         //let center:CLLocation = locationManager.location!.coordinate
         //使用自定义位置
-        let center:CLLocation = CLLocation(latitude: 32.029171, longitude: 118.788231)
-        let currentRegion:MKCoordinateRegion = MKCoordinateRegion(center: center.coordinate,
-                                                                  span: currentLocationSpan)
+        //let center:CLLocation = CLLocation(latitude: 32.029171, longitude: 118.788231)
+        //let currentRegion:MKCoordinateRegion = MKCoordinateRegion(center: center.coordinate,span: currentLocationSpan)
         
         //设置显示区域
-        self.mainMapView.setRegion(currentRegion, animated: true)
+        //self.mainMapView.setRegion(currentRegion, animated: true)
         
         //创建一个大头针对象
         let objectAnnotation = MKPointAnnotation()
@@ -60,7 +59,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest //定位精确度（最高）一般有电源接入，比较耗电
         //kCLLocationAccuracyNearestTenMeters;//精确到10米
-        locationManager.distanceFilter = 50 //设备移动后获得定位的最小距离（适合用来采集运动的定位）
+        locationManager.distanceFilter = 5 //设备移动后获得定位的最小距离（适合用来采集运动的定位）
         locationManager.requestWhenInUseAuthorization()//弹出用户授权对话框，使用程序期间授权（ios8后)
         //requestAlwaysAuthorization;//始终授权
         locationManager.startUpdatingLocation()
@@ -69,7 +68,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations.last!
-        print(currentLocation.coordinate.latitude)
+        //print(currentLocation.coordinate.latitude)
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("定位出错拉！！\(error)")
@@ -79,30 +78,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
         -> MKAnnotationView? {
             if annotation is MKUserLocation {
-                return nil
+                let messageView = MKAnnotationView()
+                messageView.image = UIImage(named: "self")
+                messageView.canShowCallout = true
+                return messageView
             }
             
-            let reuserId = "pin"
-            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuserId)
-                as? MKPinAnnotationView
-            //let pinView1 = MKPinAnnotationView()
-            //pinView1.image = UIImage(named: "pin")
-            //return pinView1
-            if pinView == nil {
-                //创建一个大头针视图
-                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuserId)
-                pinView?.canShowCallout = true
-                pinView?.animatesDrop = true
-                
-                //设置大头针颜色
-                pinView?.pinTintColor = UIColor.green
-                //设置大头针点击注释视图的右侧按钮样式
-                //pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            }else{
-                pinView?.annotation = annotation
-            }
-            
-            return pinView
+            let messageView = MKAnnotationView()
+            messageView.image = UIImage(named: "pin")
+            messageView.canShowCallout = true
+            return messageView
+
     }
 
     override func didReceiveMemoryWarning() {
