@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C5E131A1F72D01C00D3BF2A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E13191F72D01C00D3BF2A /* SecondViewController.swift */; };
 		3CCCCE6D1F72A8B4009EA5A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCCE6C1F72A8B4009EA5A5 /* AppDelegate.swift */; };
 		3CCCCE6F1F72A8B4009EA5A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCCE6E1F72A8B4009EA5A5 /* ViewController.swift */; };
 		3CCCCE721F72A8B4009EA5A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCCCE701F72A8B4009EA5A5 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C5E13191F72D01C00D3BF2A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3CCCCE691F72A8B4009EA5A5 /* project_ios11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project_ios11.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CCCCE6C1F72A8B4009EA5A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CCCCE6E1F72A8B4009EA5A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				3CCCCE781F72A8B4009EA5A5 /* LaunchScreen.storyboard */,
 				3CCCCE7B1F72A8B4009EA5A5 /* Info.plist */,
 				3CCCCE731F72A8B4009EA5A5 /* project_ios11.xcdatamodeld */,
+				3C5E13191F72D01C00D3BF2A /* SecondViewController.swift */,
 			);
 			path = project_ios11;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C5E131A1F72D01C00D3BF2A /* SecondViewController.swift in Sources */,
 				3CCCCE6F1F72A8B4009EA5A5 /* ViewController.swift in Sources */,
 				3CCCCE6D1F72A8B4009EA5A5 /* AppDelegate.swift in Sources */,
 				3CCCCE751F72A8B4009EA5A5 /* project_ios11.xcdatamodeld in Sources */,

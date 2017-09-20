@@ -17,14 +17,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     //let locationManager:CLLocationManager = CLLocationManager()
     let locationManager = CLLocationManager()
     var currentLocation:CLLocation!
+    var navigationBar:UINavigationBar?
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //使用代码创建
+        //navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: self.view.bounds.width, height: 100))
+        //self.view.addSubview(navigationBar!)
+        
         self.mainMapView = MKMapView(frame:self.view.frame)
         self.view.addSubview(self.mainMapView)
-        self.mainMapView.mapType = MKMapType.standard
+        self.mainMapView.mapType = MKMapType.mutedStandard
         self.mainMapView.delegate = self
         self.mainMapView.showsUserLocation = true
         self.mainMapView.userTrackingMode = MKUserTrackingMode.followWithHeading
@@ -63,7 +68,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.requestWhenInUseAuthorization()//弹出用户授权对话框，使用程序期间授权（ios8后)
         //requestAlwaysAuthorization;//始终授权
         locationManager.startUpdatingLocation()
+        
+       
+        //创建一个ContactAdd类型的按钮
+        let button:UIButton = UIButton(type:.contactAdd)
+        //设置按钮位置和大小
+        button.frame = CGRect(x:10, y:150, width:100, height:30)
+        //设置按钮文字
+        button.setTitle("按钮", for:.normal)
+        button.addTarget(self, action:#selector(btnClick), for:.touchUpInside)
+        self.view.addSubview(button)
+
  
+    }
+    
+    @objc func btnClick() {
+        let secondViewController = SecondViewController()
+        self.present(secondViewController, animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -78,10 +99,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
         -> MKAnnotationView? {
             if annotation is MKUserLocation {
-                let messageView = MKAnnotationView()
-                messageView.image = UIImage(named: "self")
-                messageView.canShowCallout = true
-                return messageView
+                //let messageView = MKAnnotationView()
+                //messageView.image = UIImage(named: "self")
+                //messageView.canShowCallout = true
+                //return messageView
+                return nil
             }
             
             let messageView = MKAnnotationView()
