@@ -119,6 +119,5 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
     }
 
-
 }
 
