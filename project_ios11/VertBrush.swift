@@ -101,14 +101,14 @@ class VertBrush {
         
         let idx_start : UInt32 = UInt32(vertices.count)
         
-        // add current point's vert
+        // add current point's
         for i in 0..<vertsPerPoint {
             let angle = (Float(i) / Float(vertsPerPoint)) * Float.pi * 2.0
             let v3 = SCNVector3Rotate(vector:v2, around:v1, radians:angle)
             vertices.append(toVert(p1 + v3, v3.normalized()))
         }
         
-        // add triangles
+        // add triangl
         
         let N : UInt32 = UInt32(vertsPerPoint)
         

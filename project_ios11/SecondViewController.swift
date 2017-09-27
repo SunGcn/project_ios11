@@ -130,10 +130,10 @@ class SecondViewController: UIViewController,ARSCNViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
+       
         let configuration = ARWorldTrackingConfiguration()
         
-        // Run the view's session
+        
         sceneView.session.run(configuration)
     }
     

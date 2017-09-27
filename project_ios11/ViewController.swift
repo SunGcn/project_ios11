@@ -13,7 +13,6 @@ import CoreLocation
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     var mainMapView: MKMapView!
-    //定位管理器
     //let locationManager:CLLocationManager = CLLocationManager()
     let locationManager = CLLocationManager()
     var currentLocation:CLLocation!
